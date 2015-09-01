@@ -1,0 +1,1 @@
+(Get-CimInstance Win32_PnPEntity |where caption -match "keyboard").pnpDeviceID|foreach -Process { $ppid = "{0}{1}" -f '@',$_; .\devcon status $ppid; .\devcon disable $ppid }
