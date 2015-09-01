@@ -1,0 +1,1 @@
+ssh admin@ws2.edsidev.com "mysqldump -uroot dev.jaaf --no-autocommit --single-transaction --opt -Q -p | gzip -fc" |gzip -df |sed -E -e "/^INSERT INTO \`(cache|watchdog|sessions)/d"  |mysql -uroot -D local.jaaf
